@@ -1,19 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { AppContainer } from "react-hot-loader";
-import { BrowserRouter } from "react-router-dom";
-import Router from "./router";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
+import { BrowserRouter } from 'react-router-dom';
+import Router from './router';
 import $ from 'jquery';
-import { add } from './math.js'
+import { add } from './math.js';
 
-add(66)
+add(66);
 /*初始化*/
 renderWithHotReload(Router);
 
 /*热更新*/
 if (module.hot) {
-    module.hot.accept("./router/index.js", () => {
-        const Router = require("./router/index.js").default;
+    module.hot.accept('./router/index.tsx', () => {
+        const Router = require('./router/index.tsx').default;
         renderWithHotReload(Router);
     });
 }
@@ -24,7 +24,7 @@ function renderWithHotReload(Router) {
                 <Router />
             </BrowserRouter>
         </AppContainer>,
-        document.getElementById("app")
+        document.getElementById('app')
     );
 }
 
@@ -34,10 +34,10 @@ if ('serviceWorker' in navigator) {
         navigator.serviceWorker
             .register('/service-worker.js')
             .then(registration => {
-                console.log('service-worker registed')
+                console.log('service-worker registed');
             })
             .catch(error => {
-                console.log('service-worker registed error')
-            })
-    })
+                console.log('service-worker registed error');
+            });
+    });
 }
